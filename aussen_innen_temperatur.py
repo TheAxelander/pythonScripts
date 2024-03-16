@@ -15,17 +15,26 @@ def check_temperature():
         return
 
     running = redis.get(REDIS_RUNNING) == 'true'
-    basis_station = helper_netatmo.get_station_data('Netatmo Basis')
-    temperature = float(basis_station['Temperature'])
-    print(f'Basis: {basis_station["Temperature"]}')
 
-    if temperature >= 23.5 and not running:
-        helper_telegram.send_message('Temperatur im Wohnzimmer ist über 23,5°C')
+    data = helper_netatmo.get_all_station_data()
+    basis = data['Netatmo Basis']
+    outdoor = data['Outdoor Module']
+    office = data['Innenmodul Alex Büro']
+    temperature_basis = float(basis['Temperature'])
+    temperature_outdoor = float(outdoor['Temperature'])
+    temperature_office = float(office['Temperature'])
+
+    print(f'Wohnzimmertemperatur: {temperature_basis}')
+    print(f'Bürotemperatur: {temperature_office}')
+    print(f'Außentemperatur: {temperature_outdoor}')
+
+    if (temperature_outdoor > temperature_basis or temperature_outdoor > temperature_office) and not running:
+        helper_telegram.send_message('Außertemperatur ist höher als Innentemperatur. Schließe die Fenster.')
         redis.set(name=REDIS_RUNNING, value='true')
         return
 
-    if temperature <= 23.5 and running:
-        helper_telegram.send_message('Temperatur im Wohnzimmer ist wieder unter 23,5°C')
+    if (temperature_outdoor <= temperature_basis or temperature_outdoor <= temperature_office) and running:
+        helper_telegram.send_message('Öffne die Fenster. Die Außertemperatur ist niedriger als die Innentemperatur.')
         redis.set(name=REDIS_RUNNING, value='false')
         redis.set(name=REDIS_COOLDOWN, value=5)
         return
