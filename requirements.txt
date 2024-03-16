@@ -1,0 +1,3 @@
+lnetatmo
+influxdb-client[ciso]
+redis
