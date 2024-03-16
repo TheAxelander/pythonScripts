@@ -14,7 +14,7 @@ def check_temperature():
         print(f'Cooldown, {cooldown} iterations remaining.')
         return
 
-    running = redis.get(REDIS_RUNNING)
+    running = redis.get(REDIS_RUNNING) == 'true'
     basis_station = helper_netatmo.get_station_data('Netatmo Basis')
     temperature = float(basis_station['Temperature'])
     print(f'Basis: {basis_station["Temperature"]}')
