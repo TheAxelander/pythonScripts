@@ -1,3 +1,4 @@
 lnetatmo
 influxdb-client[ciso]
 redis
+requests
