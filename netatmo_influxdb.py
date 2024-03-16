@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from helpers import helper_netatmo, helper_influx
 from influxdb_client import Point
 from datetime import datetime, timezone

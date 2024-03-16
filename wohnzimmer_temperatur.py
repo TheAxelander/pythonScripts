@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from helpers import helper_netatmo, helper_redis, helper_telegram
 
 REDIS_RUNNING = "dotnet-scripts:wohnzimmer-temperatur-running"

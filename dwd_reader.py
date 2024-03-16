@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from helpers import helper_influx
 from datetime import datetime
 from decimal import Decimal
