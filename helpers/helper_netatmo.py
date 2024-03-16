@@ -14,7 +14,3 @@ def get_all_station_data():
 
 def get_station_data(name):
     return get_all_station_data()[name]
-
-
-if __name__ == '__main__':
-    get_all_station_data()

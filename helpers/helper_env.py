@@ -13,7 +13,3 @@ def get_env_file_content():
             env_dict[key] = value
 
     return env_dict
-
-
-if __name__ == '__main__':
-    get_env_file_content()
