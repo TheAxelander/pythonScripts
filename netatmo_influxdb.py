@@ -44,11 +44,7 @@ def write_station_data():
 
                   )
 
-    try:
-        helper_influx.write_measurement(bucket='netatmo', points=points)
-    except Exception as e:
-        # This block executes if an error occurs in the try block
-        print(f"An error occurred: {e}")
+    helper_influx.write_measurement(bucket='netatmo', points=points)
 
 
 if __name__ == '__main__':
