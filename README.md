@@ -2,16 +2,18 @@
 
 ## Installation
 
+Download [latest release](https://github.com/TheAxelander/pythonScripts/releases/latest) and install it via `pipx`
+
 ``` bash
-apt install python3 python3-pip
-git clone https://github.com/TheAxelander/pythonScripts.git
-cd pythonScripts
-pip install -r requirements.txt
+apt install python3 python3-pipx
+pipx install pythonScripts-x.x.x-py3-none-any.whl
 ```
 
 Optionally create a venv for development
 
 ``` bash
+git clone https://github.com/TheAxelander/pythonScripts.git
+cd pythonScripts
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
@@ -19,7 +21,7 @@ pip install -r requirements.txt
 
 ## Configuration
 
-Requires an `.env` file in project root folder
+Requires an `.env` file in `~/.config./python-scripts/` folder
 
 ```
 redis-server=my.redis.dev
