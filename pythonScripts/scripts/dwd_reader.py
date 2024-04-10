@@ -1,6 +1,4 @@
-#!/usr/bin/env python3
-
-from helpers import helper_influx
+from pythonScripts.helpers import helper_influx
 from datetime import datetime
 from decimal import Decimal
 from typing import Tuple, Optional
@@ -74,8 +72,3 @@ def write_to_influx(data: list[DwdRecord], bucket):
 
     helper_influx.flush_measurement(bucket=bucket, measurement=measurement)
     helper_influx.write_measurement(bucket=bucket, points=points)
-
-
-if __name__ == '__main__':
-    station_data = get_station_data(DWD_SOURCE, start_year=2022)
-    write_to_influx(station_data, 'solar')

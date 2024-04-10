@@ -1,4 +1,4 @@
-from helpers import helper_redis
+from pythonScripts.helpers import helper_redis
 import requests
 
 

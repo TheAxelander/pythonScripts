@@ -1,5 +1,8 @@
+import os
+
+
 def get_env_file_content():
-    env_file_path = '.env'
+    env_file_path = os.path.expanduser('~/.config/python-scripts/.env')
     env_dict = {}
 
     with open(env_file_path, 'r') as file:

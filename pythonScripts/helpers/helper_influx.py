@@ -1,8 +1,8 @@
 from influxdb_client import InfluxDBClient
 from influxdb_client.client.write_api import SYNCHRONOUS
 from datetime import datetime
-from helpers.helper_redis import get_redis_database
-from helpers.helper_env import get_env_file_content
+from pythonScripts.helpers.helper_redis import get_redis_database
+from pythonScripts.helpers.helper_env import get_env_file_content
 
 
 def get_influx_client():

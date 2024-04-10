@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pythonScripts"
+version = "0.2.0"
+authors = [{ name = "Alexander Preibisch", email = "alexpreib@outlook.com" }]
+description = "Collection of various scripts for my homelab"
+readme = "README.md"
+license = { file = "LICENSE" }
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+requires-python = ">=3.10"
+dependencies = [
+    "lnetatmo>=4.0.0",
+    "influxdb-client>=1.41.0",
+    "redis>=5.0.3",
+    "requests>=2.31.0"
+]
+
+[project.scripts]
+python-scripts = "pythonScripts.main:main"
+
+[project.urls]
+homepage = "https://github.com/TheAxelander/pythonScripts"
+repository = "https://github.com/TheAxelander/pythonScripts"

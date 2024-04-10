@@ -1,6 +1,4 @@
-#!/usr/bin/env python3
-
-from helpers import helper_netatmo, helper_redis, helper_telegram
+from pythonScripts.helpers import helper_netatmo, helper_redis, helper_telegram
 
 REDIS_RUNNING = "dotnet-scripts:aussen-innen-temperatur-running"
 REDIS_COOLDOWN = "dotnet-scripts:aussen-innen-temperatur-cooldown"
@@ -40,7 +38,3 @@ def check_temperature():
         redis.set(name=REDIS_RUNNING, value='false')
         redis.set(name=REDIS_COOLDOWN, value=5)
         return
-
-
-if __name__ == '__main__':
-    check_temperature()

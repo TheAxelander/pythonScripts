@@ -1,6 +1,4 @@
-#!/usr/bin/env python3
-
-from helpers import helper_netatmo, helper_influx
+from pythonScripts.helpers import helper_netatmo, helper_influx
 from influxdb_client import Point
 from datetime import datetime, timezone
 
@@ -45,7 +43,3 @@ def write_station_data():
                   )
 
     helper_influx.write_measurement(bucket='netatmo', points=points)
-
-
-if __name__ == '__main__':
-    write_station_data()

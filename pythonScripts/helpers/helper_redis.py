@@ -1,5 +1,5 @@
 import redis
-from helpers import helper_env
+from pythonScripts.helpers import helper_env
 
 USERNAME = 'redis-username'
 PASSWORD = 'redis-password'
