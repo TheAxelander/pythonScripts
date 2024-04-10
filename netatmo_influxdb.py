@@ -21,8 +21,8 @@ def write_station_data():
                   .time(time=time, write_precision='s')
                   .field(field='CO2', value=basis['CO2'])
                   .field(field='Humidity', value=basis['Humidity'])
-                  .field(field='Noise', value=basis['Noise'])
-                  .field(field='Pressure', value=basis['Pressure'])
+                  .field(field='Noise', value=float(basis['Noise']))
+                  .field(field='Pressure', value=float(basis['Pressure']))
                   .field(field='Temperature', value=float(basis['Temperature']))
                   )
     points.append(Point('aussenmodul')
@@ -38,9 +38,9 @@ def write_station_data():
                   )
     points.append(Point('regenmesser')
                   .time(time=time, write_precision='s')
-                  .field(field='Rain', value=rain['Rain'])
-                  .field(field='sum_rain_1', value=rain['sum_rain_1'])
-                  .field(field='sum_rain_24', value=rain['sum_rain_24'])
+                  .field(field='Rain', value=float(rain['Rain']))
+                  .field(field='sum_rain_1', value=float(rain['sum_rain_1']))
+                  .field(field='sum_rain_24', value=float(rain['sum_rain_24']))
 
                   )
 
