@@ -25,8 +25,18 @@ Requires an `.env` file in project root folder
 redis-server=my.redis.dev
 redis-username=myuser
 redis-password=mypassword
-netatmo-clientId=myId
-netatmo-clientSecret=mySecret
 influx-server=http://my.influx.dev:8086
 influx-org=my-org
+```
+
+Netatmo requires a credential file `~/.netatmo.credentials`
+
+> Due to Netatmo continuous changes, the credential file is the recommended method for production use as the refresh token will be frequently refreshed and this file MUST be writable by the library to keep a usable refresh token.
+
+``` json
+{
+    "CLIENT_ID" : "myId",
+    "CLIENT_SECRET" : "mySecret",
+    "REFRESH_TOKEN" : "myRefresh|Token"
+}
 ```
