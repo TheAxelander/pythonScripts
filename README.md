@@ -29,6 +29,7 @@ redis-username=myuser
 redis-password=mypassword
 influx-server=http://my.influx.dev:8086
 influx-org=my-org
+mariadb-server=my.mariadb.dev
 ```
 
 Netatmo requires a credential file `~/.netatmo.credentials`

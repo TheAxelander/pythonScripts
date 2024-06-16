@@ -1,5 +1,5 @@
 import argparse
-from pythonScripts.scripts import aussen_innen_temperatur, dwd_reader, netatmo_influxdb, wohnzimmer_temperatur
+from pythonScripts.scripts import aussen_innen_temperatur, dwd_reader, netatmo_influxdb, sbfspot_influxdb, wohnzimmer_temperatur
 
 
 def main():
@@ -15,6 +15,9 @@ def main():
             dwd_reader.write_to_influx(station_data, 'solar')
         case "netatmo_influx":
             netatmo_influxdb.write_station_data()
+        case "sbfspot_influx":
+            sbfspot_influxdb.copy_day_data()
+            sbfspot_influxdb.copy_month_data()
         case "wohnzimmer_temp":
             wohnzimmer_temperatur.check_temperature()
         case _:

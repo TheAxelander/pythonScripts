@@ -1,5 +1,8 @@
 build
 lnetatmo
 influxdb-client[ciso]
+pandas
+pymysql
 redis
 requests
+sqlalchemy
