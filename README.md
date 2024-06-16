@@ -6,7 +6,7 @@ Download [latest release](https://github.com/TheAxelander/pythonScripts/releases
 
 ``` bash
 apt install python3 python3-pipx
-pipx install pythonScripts-x.x.x-py3-none-any.whl
+pipx install ./pythonScripts-x.x.x-py3-none-any.whl
 ```
 
 Optionally create a venv for development
