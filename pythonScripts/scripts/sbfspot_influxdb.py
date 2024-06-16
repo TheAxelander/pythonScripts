@@ -18,6 +18,7 @@ def copy_day_data():
 
     points = []
     for index, row in data.iterrows():
+        print(row)
         points.append(Point('DayData')
                       .time(time=row['TimeStamp'], write_precision='s')
                       .field(field='Power', value=row['Power'])
@@ -39,6 +40,7 @@ def copy_month_data():
 
     points = []
     for index, row in data.iterrows():
+        print(row)
         points.append(Point('MonthData')
                       .time(time=row['TimeStamp'], write_precision='s')
                       .field(field='TotalYield', value=row['TotalYield'])
