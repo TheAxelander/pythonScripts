@@ -13,7 +13,7 @@ def copy_day_data():
     end_unix_timestamp = int(end_day.timestamp())
 
     sql_query = (f'SELECT * FROM DayData '
-                 f'WHERE TimeStamp >= {start_unix_timestamp} AND TimeStamp < {end_unix_timestamp}')
+                 f'WHERE TimeStamp >= {start_unix_timestamp} AND TimeStamp <= {end_unix_timestamp}')
     data = pd.read_sql_query(sql=sql_query, con=mariadb_engine)
 
     points = []
@@ -25,7 +25,7 @@ def copy_day_data():
                       .field(field='TotalYield', value=row['TotalYield'])
                       )
 
-    helper_influx.write_measurement(bucket='solar', points=points)
+    #helper_influx.write_measurement(bucket='solar', points=points)
 
 
 def copy_month_data():
@@ -37,7 +37,7 @@ def copy_month_data():
     end_unix_timestamp = int(end_day.timestamp())
 
     sql_query = (f'SELECT * FROM MonthData '
-                 f'WHERE TimeStamp >= {start_unix_timestamp} AND TimeStamp < {end_unix_timestamp}')
+                 f'WHERE TimeStamp >= {start_unix_timestamp} AND TimeStamp <= {end_unix_timestamp}')
     data = pd.read_sql_query(sql=sql_query, con=mariadb_engine)
 
     points = []
@@ -49,4 +49,4 @@ def copy_month_data():
                       .field(field='DayYield', value=row['DayYield'])
                       )
 
-    helper_influx.write_measurement(bucket='solar', points=points)
+    #helper_influx.write_measurement(bucket='solar', points=points)
