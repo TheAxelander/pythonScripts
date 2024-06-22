@@ -7,10 +7,10 @@ import pandas as pd
 def copy_day_data():
     mariadb_engine = helper_mysql.get_mysql_engine('SBFspot')
 
-    start_of_previous_day = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0) - timedelta(days=1)
-    end_of_previous_day = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
-    start_unix_timestamp = int(start_of_previous_day.timestamp())
-    end_unix_timestamp = int(end_of_previous_day.timestamp())
+    start_day = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0) - timedelta(days=3)
+    end_day = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
+    start_unix_timestamp = int(start_day.timestamp())
+    end_unix_timestamp = int(end_day.timestamp())
 
     sql_query = (f'SELECT * FROM DayData '
                  f'WHERE TimeStamp >= {start_unix_timestamp} AND TimeStamp < {end_unix_timestamp}')
@@ -31,11 +31,13 @@ def copy_day_data():
 def copy_month_data():
     mariadb_engine = helper_mysql.get_mysql_engine('SBFspot')
 
-    today = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
-    unix_timestamp = int(today.timestamp())
+    start_day = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0) - timedelta(days=3)
+    end_day = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
+    start_unix_timestamp = int(start_day.timestamp())
+    end_unix_timestamp = int(end_day.timestamp())
 
     sql_query = (f'SELECT * FROM MonthData '
-                 f'WHERE TimeStamp = {unix_timestamp}')
+                 f'WHERE TimeStamp >= {start_unix_timestamp} AND TimeStamp < {end_unix_timestamp}')
     data = pd.read_sql_query(sql=sql_query, con=mariadb_engine)
 
     points = []
