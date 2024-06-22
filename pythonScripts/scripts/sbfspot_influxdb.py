@@ -25,7 +25,7 @@ def copy_day_data():
                       .field(field='TotalYield', value=row['TotalYield'])
                       )
 
-    #helper_influx.write_measurement(bucket='solar', points=points)
+    helper_influx.write_measurement(bucket='solar', points=points)
 
 
 def copy_month_data():
@@ -49,4 +49,4 @@ def copy_month_data():
                       .field(field='DayYield', value=row['DayYield'])
                       )
 
-    #helper_influx.write_measurement(bucket='solar', points=points)
+    helper_influx.write_measurement(bucket='solar', points=points)
