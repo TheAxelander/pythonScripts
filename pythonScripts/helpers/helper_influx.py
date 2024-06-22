@@ -18,6 +18,7 @@ def write_measurement(bucket, points):
     write_api = client.write_api(write_options=SYNCHRONOUS)
 
     for point in points:
+        print(f'Write to Influx: [{bucket}] {point}')
         write_api.write(bucket=bucket, org=get_env_file_content()['influx-org'], record=point)
 
     client.close()
