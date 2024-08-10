@@ -4,10 +4,10 @@ from datetime import datetime, timedelta
 import pandas as pd
 
 
-def copy_day_data():
+def copy_day_data(days=3):
     mariadb_engine = helper_mysql.get_mysql_engine('SBFspot')
 
-    start_day = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0) - timedelta(days=3)
+    start_day = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0) - timedelta(days=days)
     end_day = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
     start_unix_timestamp = int(start_day.timestamp())
     end_unix_timestamp = int(end_day.timestamp())
@@ -28,10 +28,10 @@ def copy_day_data():
     helper_influx.write_measurement(bucket='solar', points=points)
 
 
-def copy_month_data():
+def copy_month_data(days=3):
     mariadb_engine = helper_mysql.get_mysql_engine('SBFspot')
 
-    start_day = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0) - timedelta(days=3)
+    start_day = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0) - timedelta(days=days)
     end_day = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
     start_unix_timestamp = int(start_day.timestamp())
     end_unix_timestamp = int(end_day.timestamp())
