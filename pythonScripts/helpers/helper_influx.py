@@ -1,16 +1,15 @@
 from influxdb_client import InfluxDBClient
 from influxdb_client.client.write_api import SYNCHRONOUS
 from datetime import datetime
-from pythonScripts.helpers.helper_redis import get_redis_database
 from pythonScripts.helpers.helper_env import get_env_file_content
 
 
 def get_influx_client():
-    redis = get_redis_database()
-    data = redis.hgetall('dotnet-scripts:influxdb')
     url = get_env_file_content()['influx-server']
+    org = get_env_file_content()['influx-org']
+    token = get_env_file_content()['influx-token']
 
-    return InfluxDBClient(url=url, token=data['token'], org=data['organization'], timeout=120000)
+    return InfluxDBClient(url=url, token=token, org=org, timeout=120000)
 
 
 def write_measurement(bucket, points):

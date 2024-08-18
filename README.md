@@ -24,12 +24,24 @@ pip install -r requirements.txt
 Requires an `.env` file in `~/.config./python-scripts/` folder
 
 ```
+# Redis
 redis-server=my.redis.dev
 redis-username=myuser
 redis-password=mypassword
+
+# Influx
 influx-server=http://my.influx.dev:8086
 influx-org=my-org
+influx-token=mytoken
+
+# MariaDb
 mariadb-server=my.mariadb.dev
+mariadb-user=dbuser
+mariadb-password=dbpassword
+
+# Telegram
+telegram-token=mytoken
+telegram-chat-id=mychat-id
 ```
 
 Netatmo requires a credential file `~/.netatmo.credentials`

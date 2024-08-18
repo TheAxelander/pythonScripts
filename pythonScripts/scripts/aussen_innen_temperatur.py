@@ -1,7 +1,7 @@
 from pythonScripts.helpers import helper_netatmo, helper_redis, helper_telegram
 
-REDIS_RUNNING = "dotnet-scripts:aussen-innen-temperatur-running"
-REDIS_COOLDOWN = "dotnet-scripts:aussen-innen-temperatur-cooldown"
+REDIS_RUNNING = "python-scripts:aussen-innen-temperatur-running"
+REDIS_COOLDOWN = "python-scripts:aussen-innen-temperatur-cooldown"
 
 
 def check_temperature():
