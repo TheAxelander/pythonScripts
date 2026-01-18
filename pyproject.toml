@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pythonScripts"
-version = "1.4.0"
-authors = [{ name = "Alexander Preibisch", email = "alexpreib@outlook.com" }]
+version = "1.4.1"
+authors = [{ name = "Alexander Preibisch", email = "git@axelander.dev" }]
 description = "Collection of various scripts for my homelab"
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -19,7 +19,7 @@ classifiers = [
 requires-python = ">=3.10"
 dependencies = [
     "lnetatmo>=4.0.0",
-    "influxdb-client>=1.43.0",
+    "influxdb-client[ciso]>=1.43.0",
     "pandas>=2.2.2",
     "pymysql>=1.1.1",
     "redis>=5.0.4",
